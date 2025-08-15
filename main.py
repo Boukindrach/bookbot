@@ -1,4 +1,5 @@
 from stats import get_num_words, how_many_char, nice_report
+import sys
 
 def main(path):
     print("============ BOOKBOT ============")
@@ -9,4 +10,8 @@ def main(path):
     print(nice_report(path))
     print("============= END ===============")
 
-main("./books/frankenstein.txt")
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    exit(1)
+else:
+    main(sys.argv[1])

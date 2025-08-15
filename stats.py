@@ -18,3 +18,17 @@ def how_many_char(filepath):
         if char.isalpha():
             num_char[char] = num_char.get(char, 0) + 1
     return num_char
+
+def nice_report(filepath):
+    char_counts = how_many_char(filepath)
+    items_list = list(char_counts.items())
+    items_list.sort(key=lambda x: x[1], reverse=True)
+    nice_list = []
+    for i in items_list:
+        s = ""
+        for j in range(len(i)):
+            s += str(i[j])
+            if j == 0:
+                s += ": "
+        nice_list.append(s)
+    return " \n".join(nice_list)
